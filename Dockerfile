@@ -2,17 +2,20 @@ FROM node:latest
 MAINTAINER Chris Joakim
 
 # Create app directory
-RUN mkdir -p /app
+RUN mkdir -p /usr/src/app
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # Install app dependencies
-COPY . /app
+COPY . /usr/src/app/
 
 RUN npm install
 
+# Bundle app source
+# COPY .  /usr/src/app
+
 EXPOSE 80
-CMD [ "node", "bin/www.js" ]
+CMD [ "node", "bin/www" ]
 
 
 
