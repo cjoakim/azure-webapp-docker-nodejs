@@ -18,3 +18,9 @@ Invoke the one webservice endpoint:
 ```
 curl -v http://localhost/admin/ping
 ```
+
+Deploy to an Azure Linux/Docker App Service:
+```
+curl -v https://cjoakim-webapp-docker-nodejs.azurewebsites.net/
+curl -v https://cjoakim-webapp-docker-nodejs.azurewebsites.net/admin/ping
+```

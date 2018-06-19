@@ -27,4 +27,10 @@ CMD [ "node", "bin/www" ]
 # docker ps
 # docker stop -t 2 86b125ed43e5  (where 86b125ed43e5 is the CONTAINER ID from 'docker ps')
 # docker push cjoakim/webapp-docker-nodejs:latest
-# docker info cjoakim/webapp-docker-nodejs:latest  ?? no longer valid ??
+#
+# docker tag cjoakim/webapp-docker-nodejs:latest cjoakimacr.azurecr.io/webapp-docker-nodejs:latest
+# docker push cjoakimacr.azurecr.io/webapp-docker-nodejs:latest
+#
+# az acr login --name cjoakimacr
+# az acr repository list --name cjoakimacr --output table
+#
