@@ -14,7 +14,7 @@ RUN npm install
 # Bundle app source
 # COPY .  /usr/src/app
 
-EXPOSE 80
+EXPOSE 8081
 CMD [ "node", "bin/www" ]
 
 
@@ -22,6 +22,7 @@ CMD [ "node", "bin/www" ]
 # Docker commands:
 # docker build -t cjoakim/webapp-docker-nodejs . 
 # docker run -d -p 3000:3000 cjoakim/webapp-docker-nodejs:latest
+# docker run -d -p 8081:8081 cjoakim/webapp-docker-nodejs:latest
 # docker run -d -p 80:3000 cjoakim/webapp-docker-nodejs:latest
 # docker run -e MONGODB_URI=$MONGODB_AZURE_URI -d -p 80:3000 cjoakim/webapp-docker-nodejs:latest 
 # docker ps
