@@ -201,3 +201,14 @@ az container create --resource-group cjoakim-containers --name webapp-docker-nod
 ```
 
 Visit with your browser: http://webapp-docker-nodejs.eastus.azurecontainer.io/
+
+
+## Azure Container Instance with updated & tagged image
+
+```
+$ docker build -t cjoakim/webapp-docker-nodejs .
+$ docker tag cjoakim/webapp-docker-nodejs:latest cjoakimacr.azurecr.io/webapp-docker-nodejs:v20180707a
+$ docker push cjoakimacr.azurecr.io/webapp-docker-nodejs:v20180707a
+
+az container create --resource-group cjoakim-containers --name webapp-docker-nodejs --image cjoakimacr.azurecr.io/webapp-docker-nodejs:v20180707a --cpu 1 --memory 1 --registry-username cjoakimacr --registry-password $AZURE_CONTAINER_REGISTRY_USER_PASS --dns-name-label webapp-docker-nodejs --ports 80 -e 'PORT=80'
+```
