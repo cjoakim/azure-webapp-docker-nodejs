@@ -21,9 +21,7 @@ CMD [ "node", "bin/www" ]
 
 # Docker commands:
 # docker build -t cjoakim/webapp-docker-nodejs . 
-# docker run -d -p 3000:3000 cjoakim/webapp-docker-nodejs:latest
-# docker run -d -p 8081:8081 cjoakim/webapp-docker-nodejs:latest
-# docker run -d -p 80:3000 cjoakim/webapp-docker-nodejs:latest
+# docker run -d -e PORT=8080 -p 8080:8080 cjoakim/webapp-docker-nodejs:latest
 # docker run -e MONGODB_URI=$MONGODB_AZURE_URI -d -p 80:3000 cjoakim/webapp-docker-nodejs:latest 
 # docker ps
 # docker stop -t 2 86b125ed43e5  (where 86b125ed43e5 is the CONTAINER ID from 'docker ps')
