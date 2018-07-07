@@ -65,13 +65,6 @@ bb6d734b467e: Layer already exists
 latest: digest: sha256:c634aa7ae5da495a0a795b2eb80866e94a97e9637a4fcb5cae60743e3572207a size: 2632
 ```
 
-
-Deploy to an Azure Linux/Docker App Service:
-```
-curl -v https://cjoakim-webapp-docker-nodejs.azurewebsites.net/
-curl -v https://cjoakim-webapp-docker-nodejs.azurewebsites.net/admin/ping
-```
-
 ## Push Image to Azure Container Registry
 
 ```
@@ -211,4 +204,14 @@ $ docker tag cjoakim/webapp-docker-nodejs:latest cjoakimacr.azurecr.io/webapp-do
 $ docker push cjoakimacr.azurecr.io/webapp-docker-nodejs:v20180707a
 
 az container create --resource-group cjoakim-containers --name webapp-docker-nodejs --image cjoakimacr.azurecr.io/webapp-docker-nodejs:v20180707a --cpu 1 --memory 1 --registry-username cjoakimacr --registry-password $AZURE_CONTAINER_REGISTRY_USER_PASS --dns-name-label webapp-docker-nodejs --ports 80 -e 'PORT=80'
+```
+
+Visit with your browser: http://webapp-docker-nodejs.eastus.azurecontainer.io/
+
+
+## Alternatively, Deploy to an Azure Linux/Docker App Service:
+
+```
+curl -v https://cjoakim-webapp-docker-nodejs.azurewebsites.net/
+curl -v https://cjoakim-webapp-docker-nodejs.azurewebsites.net/admin/ping
 ```
