@@ -32,11 +32,9 @@ router.get('/ping', function(req, res) {
 
   sbu.on('done', (evt_obj) => {
       console.log(JSON.stringify(evt_obj, null, 2));
-      //message['evt_obj'] = evt_obj;
-      res.json(message);
   });
-  //console.log('sending msg: ' + JSON.stringify(message, null, 2));
   sbu.send_message_to_queue(message, 'inbound');
+  res.json(message);
 });
 
 module.exports = router;
