@@ -1,11 +1,13 @@
-// Main file for the Node/Express web application.
-// Chris Joakim, Microsoft, 2018/06/15
+// Main file for this Node/Express web application.
+// Chris Joakim, Microsoft, 2018/11/21
 
 var express    = require('express');
 var path       = require('path');
 var bodyParser = require('body-parser');
 var logger     = require('morgan');
 var cookieParser = require('cookie-parser');
+
+var azu = require('./lib/azu');
 
 var app = express();
 
