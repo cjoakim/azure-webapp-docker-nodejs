@@ -24,6 +24,7 @@ router.get('/ping', function(req, res) {
   body['text'] = 'test message';
   body['date'] = date;
   body['epoch'] = date.getTime();
+  body['env'] = process.env;
   message.body = JSON.stringify(body);
   message.brokerProperties = {};
   message.brokerProperties['SessionId'] = pid;
