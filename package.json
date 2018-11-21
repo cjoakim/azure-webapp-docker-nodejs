@@ -32,6 +32,6 @@
     "start": "node bin/www"
   },
   "engines": {
-    "node": "8.11.3"
+    "node": "8.11.1"
   }
 }
