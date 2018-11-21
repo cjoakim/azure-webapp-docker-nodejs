@@ -10,21 +10,21 @@ const build_timestamp_obj = require("../build_timestamp.json");
 
 var azu = require('../lib/azu');
 
-var opts = {};
-opts['queue_name'] = 'outbound';
-opts['key_name']   = process.env.AZURE_SERVICEBUS_KEY_NAME;
-opts['key_value']  = process.env.AZURE_SERVICEBUS_ACCESS_KEY;
-console.log(opts);
-var sbu = new azu.AzuSvcBusUtil(opts);
-
 router.get('/ping', function(req, res) {
+  var opts = {};
+  opts['queue_name'] = 'outbound';
+  opts['key_name']   = process.env.AZURE_SERVICEBUS_KEY_NAME;
+  opts['key_value']  = process.env.AZURE_SERVICEBUS_ACCESS_KEY;
+  console.log(opts);
+  var sbu = new azu.AzuSvcBusUtil(opts);
+
   var date = new Date();
   var message = {};
   var body = {};
   body['text'] = 'test message';
   body['date'] = date;
   body['epoch'] = date.getTime();
-  body['env'] = process.env;
+  //body['env'] = process.env;
   message.body = JSON.stringify(body);
   message.brokerProperties = {};
   message.brokerProperties['SessionId'] = pid;
