@@ -1,21 +1,33 @@
 // Main file for this Node/Express web application.
-// Chris Joakim, Microsoft, 2018/11/21
+// Chris Joakim, Microsoft, 2018/11/22
 
-var express    = require('express');
-var path       = require('path');
-var bodyParser = require('body-parser');
-var logger     = require('morgan');
-var cookieParser = require('cookie-parser');
-
-var azu = require('./lib/azu');
+var   express    = require('express');
+var   path       = require('path');
+var   bodyParser = require('body-parser');
+var   logger     = require('morgan');
+var   cookieParser = require('cookie-parser');
+const uuidv4     = require('uuid/v4');
+const process    = require('process');
+const azu        = require('./lib/azu');
 
 var app = express();
 
 app.use(bodyParser.json()) 
 
+var now = new Date();
 var env = process.env.NODE_ENV || 'development';
 app.locals.ENV = env;
 app.locals.ENV_DEVELOPMENT = env == 'development';
+app.locals.pid = process.pid;
+app.locals.start_date = now;
+app.locals.start_epoch = now.getTime();
+app.locals.svcbus_session_id = uuidv4();
+
+console.log('app.locals.ENV: ' + app.locals.ENV);
+console.log('app.locals.pid: ' + app.locals.pid);
+console.log('app.locals.start_date: ' + app.locals.start_date);
+console.log('app.locals.start_epoch: ' + app.locals.start_epoch);
+console.log('app.locals.svcbus_session_id: ' + app.locals.svcbus_session_id);
 
 // Application routers
 var index_router = require('./routes/index');
