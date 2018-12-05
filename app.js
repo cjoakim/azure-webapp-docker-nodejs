@@ -21,13 +21,13 @@ app.locals.ENV_DEVELOPMENT = env == 'development';
 app.locals.pid = process.pid;
 app.locals.start_date = now;
 app.locals.start_epoch = now.getTime();
-app.locals.svcbus_session_id = uuidv4();
+app.locals.some_uuid = uuidv4();
 
 console.log('app.locals.ENV: ' + app.locals.ENV);
 console.log('app.locals.pid: ' + app.locals.pid);
 console.log('app.locals.start_date: ' + app.locals.start_date);
 console.log('app.locals.start_epoch: ' + app.locals.start_epoch);
-console.log('app.locals.svcbus_session_id: ' + app.locals.svcbus_session_id);
+console.log('app.locals.some_uuid: ' + app.locals.some_uuid);
 
 // Application routers
 var index_router = require('./routes/index');
